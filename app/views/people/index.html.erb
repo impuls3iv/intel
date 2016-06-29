@@ -1,0 +1,13 @@
+<h1>List of people</h1>
+
+
+  <% @people.each do |x| %>
+  <h2><%= x.name %></h2>
+<ul>
+  <li>Email:<%= x.email %></li>
+  <li>Address:<%= x.address %></li>
+  <li>Phone: <%= x.phone %></li>
+  <li>Twitter:<%= x.twitter %></li>
+  <li>Linkedin:<%= x.linkedin %></li>
+</ul>
+<% end %>
