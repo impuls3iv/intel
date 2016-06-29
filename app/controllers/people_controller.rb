@@ -27,7 +27,7 @@ class PeopleController < ApplicationController
 
   def update
      @person = Person.find(params[:id])
-     if @person.update_attributes(params)
+     if @person.update_attributes(person_params)
        redirect_to person_path(@person)
      else
        render :edit
@@ -35,6 +35,12 @@ class PeopleController < ApplicationController
   end
 
   def delete
+    @person = Person.find(params[:id])
+    if @person.destroy
+      redirect_to people_path, :flash => { :notice => "Person successfully deleted" }
+    else
+      redirect_to people_path, :flash => { :notice => "Successfully deleted" }
+    end
   end
 
   private
